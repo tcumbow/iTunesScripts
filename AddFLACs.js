@@ -367,7 +367,13 @@ function Traverse(folder) {
             if ('Artist' in tags) track.Artist = tags.Artist
             if ('Name' in tags) track.Name = tags.Name
             if ('Album' in tags) track.Album = tags.Album
-            if ('Genre' in tags) track.Genre = tags.Genre
+            if ('Genre' in tags) {
+                if (tags.Genre == "Game") tags['Genre'] = "Video Game"
+                if (tags.Genre == "Soundtrack") tags['Genre'] = "Video Game"
+                if (tags.Genre == "Game Soundtrack") tags['Genre'] = "Video Game"
+                if (tags.Genre == "Chiptune") tags['Genre'] = "Video Game"
+                track.Genre = tags.Genre
+            }
             if ('TrackNumber' in tags) track.TrackNumber = tags.TrackNumber
             if ('Date' in tags) track.Year = tags.Date
             if ('Compilation' in tags) track.Compilation = tags.Compilation != 0
