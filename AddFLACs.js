@@ -185,17 +185,6 @@ try {
 
 var iTunesLibrary = iTunesApp.LibraryPlaylist;
 
-var savedEncoder = iTunesApp.CurrentEncoder
-if (savedEncoder.Name != "Lossless Encoder") {
-    log("Current Encoder: "+savedEncoder.Name)
-    var encoders = new Enumerator(iTunesApp.Encoders)
-    for (encoders.moveFirst(); !encoders.atEnd(); encoders.moveNext()) {
-        var encoder = encoders.item()
-        if (encoder.Name == "Lossless Encoder")
-            iTunesApp.CurrentEncoder = encoder
-    }
-}
-
 log("Importing FLAC files from "+src.Name)
 
 function extractMetadata(sourcePath) {
